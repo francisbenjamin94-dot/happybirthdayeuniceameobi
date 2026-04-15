@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Eunice! 🌸</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --blush-nude: #F5E6E8;
+            --soft-pink: #EAD1D6;
+            --cream: #FFF8F5;
+            --white: #FFFFFF;
+            --gold: #C9A646;
+            --deep-gold: #A8892F;
+            --dark-brown: #4A3A3A;
+            --soft-black: #2B2B2B;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-brown);
+            overflow-x: hidden;
+        }
+
+        /* ── Fade-in on scroll ── */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ══════════════════════════════
+           HERO SECTION
+        ══════════════════════════════ */
+        .hero {
+            background: linear-gradient(135deg, var(--blush-nude) 0%, var(--soft-pink) 60%, #DFB8C0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 1.5rem 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -60px; left: -60px;
+            width: 320px; height: 320px;
+            background: radial-gradient(circle, rgba(201,166,70,0.12) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -80px; right: -60px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(201,166,70,0.10) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-script {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            animation: fadeSlideDown 1s ease both;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 6vw, 4rem);
+            font-weight: 700;
+            color: var(--dark-brown);
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+            animation: fadeSlideDown 1.1s ease both;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--gold), var(--deep-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-date {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--dark-brown);
+            opacity: 0.75;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.8rem;
+            animation: fadeSlideDown 1.2s ease both;
+        }
+
+        .hero-message {
+            max-width: 580px;
+            font-size: 1.05rem;
+            color: var(--dark-brown);
+            line-height: 1.9;
+            opacity: 0.85;
+            margin-bottom: 2.5rem;
+            animation: fadeSlideDown 1.3s ease both;
+        }
+
+        /* Countdown */
+        .countdown-wrapper {
+            animation: fadeSlideDown 1.4s ease both;
+        }
+
+        .countdown-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--dark-brown);
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .countdown-boxes {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .countdown-box {
+            background: linear-gradient(135deg, var(--gold), var(--deep-gold));
+            color: var(--white);
+            border-radius: 16px;
+            padding: 1rem 1.4rem;
+            min-width: 82px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(201,166,70,0.35);
+            transition: transform 0.3s;
+        }
+        .countdown-box:hover { transform: translateY(-3px); }
+        .countdown-box .num { font-size: 2rem; font-weight: 700; line-height: 1; font-family: 'Playfair Display', serif; }
+        .countdown-box .unit { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9; margin-top: 5px; }
+
+        .birthday-banner {
+            background: linear-gradient(135deg, var(--gold), var(--deep-gold));
+            color: var(--white);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            padding: 1.1rem 2.5rem;
+            border-radius: 50px;
+            display: inline-block;
+            box-shadow: 0 6px 24px rgba(201,166,70,0.45);
+            animation: pulse 1.6s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 6px 24px rgba(201,166,70,0.45); }
+            50% { transform: scale(1.04); box-shadow: 0 8px 32px rgba(201,166,70,0.65); }
+        }
+
+        @keyframes fadeSlideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Sparkle dots */
+        .sparkle {
+            position: absolute;
+            width: 6px; height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: twinkle 2.5s infinite alternate;
+        }
+        @keyframes twinkle {
+            from { opacity: 0.15; transform: scale(0.8); }
+            to { opacity: 0.6; transform: scale(1.2); }
+        }
+
+        /* ══════════════════════════════
+           SHARED LAYOUT
+        ══════════════════════════════ */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+        section { padding: 5rem 0; }
+
+        .section-label {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.5rem;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 700;
+            text-align: center;
+            color: var(--dark-brown);
+            margin-bottom: 0.8rem;
+        }
+
+        .section-sub {
+            text-align: center;
+            color: var(--dark-brown);
+            opacity: 0.65;
+            font-size: 0.95rem;
+            margin-bottom: 3rem;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--gold), var(--deep-gold));
+            border-radius: 2px;
+            margin: 0.8rem auto 2.5rem;
+        }
+
+        /* Card */
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(74,58,58,0.08);
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(74,58,58,0.13); }
+
+        /* Button */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: var(--gold);
+            color: var(--white);
+            border: none;
+            border-radius: 25px;
+            padding: 0.85rem 2rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+            text-decoration: none;
+        }
+        .btn:hover { background: var(--deep-gold); box-shadow: 0 6px 20px rgba(168,137,47,0.4); transform: translateY(-2px); }
+        .btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+
+        /* ══════════════════════════════
+           MESSAGE WALL (white bg)
+        ══════════════════════════════ */
+        .section-messages { background: var(--white); }
+
+        .wish-form {
+            background: linear-gradient(135deg, var(--blush-nude), var(--soft-pink));
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2.5rem;
+        }
+
+        .form-group { margin-bottom: 1rem; }
+
+        .form-input {
+            width: 100%;
+            padding: 0.85rem 1.1rem;
+            border: 2px solid var(--soft-pink);
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            color: var(--dark-brown);
+            background: var(--white);
+            transition: border-color 0.3s;
+        }
+        .form-input:focus { outline: none; border-color: var(--gold); }
+        textarea.form-input { resize: none; height: 110px; }
+
+        .wishes-list { display: flex; flex-direction: column; gap: 1.2rem; }
+
+        .wish-card {
+            background: linear-gradient(135deg, var(--blush-nude), #FAEDF0);
+            padding: 1.5rem;
+            border-radius: 18px;
+            border-left: 4px solid var(--gold);
+            transition: transform 0.2s;
+        }
+        .wish-card:hover { transform: translateX(4px); }
+
+        .wish-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .wish-name { font-weight: 600; font-size: 1rem; color: var(--gold); }
+        .wish-date { font-size: 0.75rem; color: #9ca3af; }
+        .wish-message { color: var(--dark-brown); line-height: 1.7; font-size: 0.9rem; word-wrap: break-word; }
+
+        /* ══════════════════════════════
+           GALLERY (cream bg)
+        ══════════════════════════════ */
+        .section-gallery { background: var(--cream); }
+
+        .upload-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: var(--gold);
+            color: var(--white);
+            border-radius: 25px;
+            padding: 0.85rem 2rem;
+            cursor: pointer;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin: 0 auto 2rem;
+            transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+            width: fit-content;
+        }
+        .upload-btn:hover { background: var(--deep-gold); box-shadow: 0 6px 20px rgba(168,137,47,0.4); transform: translateY(-2px); }
+
+        .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 1rem; }
+
+        .photo-item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 14px rgba(74,58,58,0.1);
+        }
+        .photo-item:hover { transform: scale(1.04); box-shadow: 0 10px 28px rgba(74,58,58,0.18); }
+        .photo-item img { width: 100%; height: 100%; object-fit: cover; }
+
+        .remove-btn {
+            position: absolute;
+            top: 0.5rem; right: 0.5rem;
+            background: rgba(220,38,38,0.85);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 28px; height: 28px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.2s;
+            font-size: 1rem;
+        }
+        .photo-item:hover .remove-btn { opacity: 1; }
+
+        .empty-state { text-align: center; color: #9ca3af; padding: 3rem; font-size: 0.95rem; }
+        .loading-state { text-align: center; color: var(--gold); padding: 2rem; font-size: 0.9rem; }
+
+        /* ══════════════════════════════
+           CLOSING (blush gradient)
+        ══════════════════════════════ */
+        .section-closing {
+            background: linear-gradient(135deg, var(--blush-nude), var(--soft-pink), #DFB8C0);
+            text-align: center;
+            padding: 6rem 1.5rem;
+        }
+
+        .closing-quote {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .closing-text {
+            max-width: 520px;
+            margin: 0 auto 2.5rem;
+            font-size: 1rem;
+            line-height: 1.9;
+            color: var(--dark-brown);
+            opacity: 0.85;
+        }
+
+        /* ══════════════════════════════
+           MODAL
+        ══════════════════════════════ */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(43,43,43,0.85);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+        .modal.active { display: flex; }
+        .modal-content { position: relative; max-width: 90%; max-height: 90%; }
+        .modal-content img { max-width: 100%; max-height: 88vh; object-fit: contain; border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+        .modal-close {
+            position: absolute;
+            top: -42px; right: 0;
+            background: none; border: none;
+            color: white; font-size: 2.2rem; cursor: pointer; opacity: 0.85;
+        }
+        .modal-close:hover { opacity: 1; }
+
+        /* ══════════════════════════════
+           ERROR
+        ══════════════════════════════ */
+        .error-message {
+            background: #fee2e2; color: #b91c1c;
+            padding: 1rem; border-radius: 12px;
+            margin-bottom: 1.2rem; text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* ══════════════════════════════
+           RESPONSIVE
+        ══════════════════════════════ */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.9rem; }
+            .photo-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+            .countdown-box .num { font-size: 1.6rem; }
+        }
+
+        /* ══════════════════════════════
+           GIFT SECTION
+        ══════════════════════════════ */
+        .section-gift {
+            background: var(--white);
+            text-align: center;
+        }
+
+        .gift-intro {
+            max-width: 540px;
+            margin: 0 auto 2.5rem;
+            font-size: 0.97rem;
+            line-height: 1.85;
+            color: var(--dark-brown);
+            opacity: 0.8;
+        }
+
+        .gift-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.4rem;
+            justify-content: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .gift-card {
+            background: linear-gradient(135deg, var(--blush-nude), #FAEDF0);
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            min-width: 240px;
+            flex: 1;
+            border-top: 4px solid var(--gold);
+            box-shadow: 0 6px 24px rgba(74,58,58,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: left;
+        }
+        .gift-card:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(74,58,58,0.13); }
+
+        .gift-bank {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 0.6rem;
+        }
+
+        .gift-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark-brown);
+            margin-bottom: 0.5rem;
+        }
+
+        .gift-account {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: var(--white);
+            border-radius: 12px;
+            padding: 0.75rem 1rem;
+            margin-top: 0.6rem;
+            box-shadow: 0 2px 10px rgba(74,58,58,0.07);
+        }
+
+        .gift-account-num {
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: var(--dark-brown);
+            flex: 1;
+        }
+
+        .copy-btn {
+            background: var(--gold);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            padding: 0.4rem 0.85rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            transition: background 0.25s, transform 0.2s;
+            white-space: nowrap;
+        }
+        .copy-btn:hover { background: var(--deep-gold); transform: scale(1.05); }
+        .copy-btn.copied { background: #22c55e; }
+    </style>
+</head>
+<body>
+
+    <!-- ══ HERO ══ -->
+    <section class="hero">
+        <!-- Sparkle dots -->
+        <div class="sparkle" style="top:12%;left:8%;animation-delay:0s;"></div>
+        <div class="sparkle" style="top:25%;left:92%;animation-delay:0.8s;width:8px;height:8px;"></div>
+        <div class="sparkle" style="top:70%;left:5%;animation-delay:1.5s;width:5px;height:5px;"></div>
+        <div class="sparkle" style="top:80%;left:88%;animation-delay:0.4s;"></div>
+        <div class="sparkle" style="top:45%;left:96%;animation-delay:2s;width:4px;height:4px;"></div>
+        <div class="sparkle" style="top:15%;left:50%;animation-delay:1.2s;width:5px;height:5px;"></div>
+
+        <p class="hero-script">It's your special day ✨</p>
+        <h1>Happy Birthday,<br><span>Eunice Jesuloluwa Ameobi!</span></h1>
+        <p class="hero-date">April 16 · A day worth celebrating</p>
+        <p class="hero-message">
+            Celebrating me, celebrating grace ❤️<br><br>
+            This day marks more than a birthday — it marks growth, strength, and countless blessings.
+            Every year tells a story… and mine is still beautifully unfolding.
+            Today, we celebrate love, memories, and new beginnings.
+        </p>
+
+        <div class="countdown-wrapper">
+            <p class="countdown-label" id="countdownLabel">🎂 Birthday Countdown</p>
+            <div id="countdownDisplay"></div>
+        </div>
+    </section>
+
+    <!-- ══ MESSAGE WALL ══ -->
+    <section class="section-messages">
+        <div class="container">
+            <span class="section-label fade-in">Wishes & Love</span>
+            <h2 class="section-title fade-in">Birthday Message Wall</h2>
+            <div class="divider fade-in"></div>
+            <p class="section-sub fade-in">Drop a birthday wish for Eunice — let her know she's loved! 💌</p>
+
+            <div class="wish-form fade-in">
+                <div class="form-group">
+                    <input type="text" id="wishName" class="form-input" placeholder="Your Name" maxlength="50">
+                </div>
+                <div class="form-group">
+                    <textarea id="wishMessage" class="form-input" placeholder="Write your birthday wish for Eunice..." maxlength="500"></textarea>
+                </div>
+                <button class="btn" id="submitWishBtn" onclick="submitWish()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                    Send Wish 💛
+                </button>
+            </div>
+
+            <div id="wishLoading" class="loading-state" style="display:none;">Loading wishes...</div>
+            <div id="wishesList" class="wishes-list"></div>
+            <div id="emptyWishes" class="empty-state"><p>Be the first to leave a birthday wish for Eunice! 🌸</p></div>
+        </div>
+    </section>
+
+    <!-- ══ GALLERY ══ -->
+    <section class="section-gallery">
+        <div class="container">
+            <span class="section-label fade-in">Memories</span>
+            <h2 class="section-title fade-in">Beautiful Moments</h2>
+            <div class="divider fade-in"></div>
+            <p class="section-sub fade-in">Share your favourite memories with Eunice 📸</p>
+
+            <label class="upload-btn fade-in" id="uploadBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                Add Photos
+                <input type="file" id="photoUpload" multiple accept="image/*" style="display:none;">
+            </label>
+
+            <div id="photoLoading" class="loading-state" style="display:none;">Loading photos...</div>
+            <div id="photoGrid" class="photo-grid"></div>
+            <div id="emptyPhotos" class="empty-state"><p>No photos yet — upload some beautiful memories! 🌷</p></div>
+        </div>
+    </section>
+
+    <!-- ══ GIFT / ACCOUNT DETAILS ══ -->
+    <section class="section-gift">
+        <div class="container">
+            <span class="section-label fade-in">Celebrate with Love</span>
+            <h2 class="section-title fade-in">Send a Birthday Gift 🎁</h2>
+            <div class="divider fade-in"></div>
+            <p class="gift-intro fade-in">
+                Want to bless Eunice on her special day? Your love and generosity mean the world.
+                Here are her account details — no gift is too small when it comes with a heart full of love. 💛
+            </p>
+
+            <div class="gift-cards fade-in">
+                <div class="gift-card">
+                    <p class="gift-bank">💳 Zenith Bank</p>
+                    <p class="gift-name">Eunice Jesuloluwa Ameobi</p>
+                    <div class="gift-account">
+                        <span class="gift-account-num" id="acc1">2288924823</span>
+                        <button class="copy-btn" onclick="copyAcct('acc1', this)">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ CLOSING ══ -->
+    <section class="section-closing">
+        <div class="container">
+            <p class="closing-quote fade-in">Here's to you, Eunice ✨</p>
+            <h2 class="section-title fade-in" style="margin-bottom:1.2rem;">Many More Beautiful Years</h2>
+            <p class="closing-text fade-in">
+                May this new year of your life be filled with laughter, purpose, love,
+                and every good thing your heart desires. You deserve it all, Eunice.
+                Happy Birthday! 🎂🌸
+            </p>
+            <div class="fade-in" id="countdownDisplay2"></div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- ══ FOOTER ══ -->
+    <footer style="background:#2B2B2B;text-align:center;padding:1.4rem 1rem;">
+        <p style="font-family:'Poppins',sans-serif;font-size:0.8rem;color:rgba(255,255,255,0.45);letter-spacing:0.5px;">
+            Designed with ❤️ by <span style="color:#C9A646;font-weight:600;">Flux</span>
+            &nbsp;·&nbsp;
+            <a href="tel:09133036989" style="color:#C9A646;text-decoration:none;font-weight:600;">09133036989</a>
+        </p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <img id="modalImage" src="" alt="Full size photo">
+        </div>
+    </div>
+
+    <!-- ══ COUNTDOWN SCRIPT ══ -->
+    <script>
+        function updateCountdown() {
+            const now  = new Date();
+            const year = now.getFullYear();
+            // April = month index 3
+            let birthday = new Date(year, 3, 16, 0, 0, 0);
+            if (now > birthday) birthday = new Date(year + 1, 3, 16, 0, 0, 0);
+
+            const display  = document.getElementById('countdownDisplay');
+            const display2 = document.getElementById('countdownDisplay2');
+            const label    = document.getElementById('countdownLabel');
+
+            const isBirthday = (now.getDate() === 16 && now.getMonth() === 3);
+
+            if (isBirthday) {
+                label.textContent = '';
+                const banner = '<div class="birthday-banner">🎉 Happy Birthday, Eunice! 🌸🎂</div>';
+                display.innerHTML  = banner;
+                if (display2) display2.innerHTML = banner;
+                return;
+            }
+
+            const diff    = birthday - now;
+            const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            label.textContent = '🎂 Countdown to April 16th';
+            const boxesHtml = `
+                <div class="countdown-boxes">
+                    <div class="countdown-box"><div class="num">${days}</div><div class="unit">Days</div></div>
+                    <div class="countdown-box"><div class="num">${String(hours).padStart(2,'0')}</div><div class="unit">Hours</div></div>
+                    <div class="countdown-box"><div class="num">${String(minutes).padStart(2,'0')}</div><div class="unit">Mins</div></div>
+                    <div class="countdown-box"><div class="num">${String(seconds).padStart(2,'0')}</div><div class="unit">Secs</div></div>
+                </div>`;
+            display.innerHTML = boxesHtml;
+            if (display2) display2.innerHTML = boxesHtml;
+        }
+
+        // Copy account number
+        window.copyAcct = function(id, btn) {
+            const text = document.getElementById(id).textContent.trim();
+            navigator.clipboard.writeText(text).then(() => {
+                btn.textContent = '✓ Copied';
+                btn.classList.add('copied');
+                setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+            }).catch(() => {
+                btn.textContent = 'Done!';
+                setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+            });
+        };
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Fade-in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+
+    <!-- ══ FIREBASE SCRIPT ══ -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, deleteDoc, doc, query, orderBy, onSnapshot }
+            from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCcAe7BZqwETVuTul5fVun9yxZNhjJ0-0s",
+            authDomain: "happybirthdayeuniceameobi.firebaseapp.com",
+            projectId: "happybirthdayeuniceameobi",
+            storageBucket: "happybirthdayeuniceameobi.firebasestorage.app",
+            messagingSenderId: "919212398743",
+            appId: "1:919212398743:web:a4ba830e3afe4bafd071d2"
+           
+        };
+
+        let app, db;
+        try {
+            app = initializeApp(firebaseConfig);
+            db  = getFirestore(app);
+        } catch (error) {
+            console.error("Firebase initialization error:", error);
+            showError("Firebase configuration error. Please check your credentials.");
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function showError(message) {
+            const container = document.querySelector('.container');
+            const errorDiv  = document.createElement('div');
+            errorDiv.className   = 'error-message';
+            errorDiv.textContent = message;
+            container.insertBefore(errorDiv, container.firstChild);
+            setTimeout(() => errorDiv.remove(), 5000);
+        }
+
+        function formatDateTime(date) {
+            return date.toLocaleString(undefined, {
+                year: 'numeric', month: 'short', day: 'numeric',
+                hour: '2-digit', minute: '2-digit'
+            });
+        }
+
+        // ── PHOTOS ──
+        let photosListener = null;
+
+        async function loadPhotos() {
+            if (!db) return;
+            const photoGrid    = document.getElementById('photoGrid');
+            const emptyPhotos  = document.getElementById('emptyPhotos');
+            const photoLoading = document.getElementById('photoLoading');
+
+            photoLoading.style.display = 'block';
+            photoGrid.innerHTML = '';
+            emptyPhotos.style.display = 'none';
+
+            const q = query(collection(db, "photos"), orderBy("createdAt", "desc"));
+            photosListener = onSnapshot(q, (snapshot) => {
+                photoGrid.innerHTML = '';
+                photoLoading.style.display = 'none';
+                if (snapshot.empty) { emptyPhotos.style.display = 'block'; return; }
+                emptyPhotos.style.display = 'none';
+                snapshot.forEach((docSnap) => {
+                    const photo = docSnap.data();
+                    const photoItem = document.createElement('div');
+                    photoItem.className = 'photo-item';
+                    photoItem.onclick = () => openModal(photo.url);
+                    photoItem.innerHTML = `
+                        <img src="${escapeHtml(photo.url)}" alt="Memory">
+                        <button class="remove-btn" onclick="event.stopPropagation(); window.removePhoto('${docSnap.id}')">×</button>
+                    `;
+                    photoGrid.appendChild(photoItem);
+                });
+            }, () => {
+                photoLoading.style.display = 'none';
+                showError("Error loading photos. Please refresh.");
+            });
+        }
+
+        document.getElementById('photoUpload').addEventListener('change', async function(e) {
+            if (!db) { showError("Firebase not initialized."); return; }
+            const files     = Array.from(e.target.files);
+            const uploadBtn = document.getElementById('uploadBtn');
+            uploadBtn.style.opacity = '0.5';
+            uploadBtn.style.pointerEvents = 'none';
+
+            for (const file of files) {
+                if (file.size > 5000000) { showError('Photo too large (max 5MB).'); continue; }
+                const reader = new FileReader();
+                reader.onload = async (event) => {
+                    try {
+                        await addDoc(collection(db, "photos"), { url: event.target.result, createdAt: new Date() });
+                    } catch { showError("Error uploading photo. Please try again."); }
+                };
+                reader.readAsDataURL(file);
+            }
+
+            e.target.value = '';
+            uploadBtn.style.opacity = '1';
+            uploadBtn.style.pointerEvents = 'auto';
+        });
+
+        window.removePhoto = async function(photoId) {
+            if (!db || !confirm('Remove this photo?')) return;
+            try { await deleteDoc(doc(db, "photos", photoId)); }
+            catch { showError("Error removing photo."); }
+        };
+
+        function openModal(url) {
+            document.getElementById('modalImage').src = url;
+            document.getElementById('modal').classList.add('active');
+        }
+        window.closeModal = () => document.getElementById('modal').classList.remove('active');
+
+        // ── WISHES ──
+        let wishesListener = null;
+
+        async function loadWishes() {
+            if (!db) return;
+            const wishesList  = document.getElementById('wishesList');
+            const emptyWishes = document.getElementById('emptyWishes');
+            const wishLoading = document.getElementById('wishLoading');
+
+            wishLoading.style.display = 'block';
+            wishesList.innerHTML = '';
+            emptyWishes.style.display = 'none';
+
+            const q = query(collection(db, "wishes"), orderBy("createdAt", "desc"));
+            wishesListener = onSnapshot(q, (snapshot) => {
+                wishesList.innerHTML = '';
+                wishLoading.style.display = 'none';
+                if (snapshot.empty) { emptyWishes.style.display = 'block'; return; }
+                emptyWishes.style.display = 'none';
+                snapshot.forEach((docSnap) => {
+                    const wish   = docSnap.data();
+                    const dateObj = wish.createdAt?.toDate ? wish.createdAt.toDate() : new Date();
+                    const card   = document.createElement('div');
+                    card.className = 'wish-card';
+                    card.innerHTML = `
+                        <div class="wish-header">
+                            <span class="wish-name">${escapeHtml(wish.name)}</span>
+                            <span class="wish-date">🕐 ${formatDateTime(dateObj)}</span>
+                        </div>
+                        <p class="wish-message">${escapeHtml(wish.message)}</p>
+                    `;
+                    wishesList.appendChild(card);
+                });
+            }, () => {
+                wishLoading.style.display = 'none';
+                showError("Error loading wishes.");
+            });
+        }
+
+        window.submitWish = async function() {
+            if (!db) { showError("Firebase not initialized."); return; }
+            const nameInput    = document.getElementById('wishName');
+            const messageInput = document.getElementById('wishMessage');
+            const submitBtn    = document.getElementById('submitWishBtn');
+            const name    = nameInput.value.trim();
+            const message = messageInput.value.trim();
+
+            if (!name || !message) { showError('Please fill in both your name and message.'); return; }
+            if (message.length > 500) { showError('Message too long (max 500 characters).'); return; }
+
+            submitBtn.disabled = true;
+            try {
+                await addDoc(collection(db, "wishes"), { name, message, createdAt: new Date() });
+                nameInput.value    = '';
+                messageInput.value = '';
+            } catch {
+                showError("Error submitting wish. Please try again.");
+            } finally {
+                submitBtn.disabled = false;
+            }
+        };
+
+        loadPhotos();
+        loadWishes();
+
+        window.addEventListener('beforeunload', () => {
+            if (photosListener) photosListener();
+            if (wishesListener) wishesListener();
+        });
+    </script>
+</body>
+</html>
